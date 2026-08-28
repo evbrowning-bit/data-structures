@@ -13,6 +13,18 @@ public class Business
      */
     public static void downsize(LinkedList<String> employeeNames, int n)
     {
-        ...
+        
+        for(int i=0;i<employeeNames.size();i++)
+        {
+            
+            if(i==n)
+            {
+                employeeNames.remove(i);
+                
+                n+=n;
+            }
+            
+        }
     }
+
 }
