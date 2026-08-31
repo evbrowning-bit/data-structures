@@ -1,30 +1,26 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 
-/**
- * Business utility methods.
-*/
 public class Business
 {
     /**
       * Removes every nth element from the linked list
       *
-      * @param employeeNames the linked list to remove from
-      * @param n                 the parameter to determine "nth"
+      * @param employeeNames 
+      * @param n                 
      */
     public static void downsize(LinkedList<String> employeeNames, int n)
     {
-        
-        for(int i=0;i<employeeNames.size();i++)
+        ListIterator<String> iterator = employeeNames.listIterator();
+        int x = 0;
+        while (iterator.hasNext())
         {
-            
-            if(i==n)
+            iterator.next();
+            x++;
+            if (x % n == 0)
             {
-                employeeNames.remove(i);
-                
-                n+=n;
+                iterator.remove();
             }
-            
         }
     }
-
-}
+} 
