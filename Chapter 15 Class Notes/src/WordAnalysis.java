@@ -13,6 +13,26 @@ public class WordAnalysis
     public static void main(String[] args)
         throws FileNotFoundException
     {
+        //determine current working directory
+        //System.out.println(System.getProperty("user.dir"));
+        Set<String> dictionaryWords=readWords("Chapter 15 Class Notes/src/words");
+        Set<String> novelWords = readWords("Chapter 15 Class Notes/src/war-and-peace.txt");
+        for(String word: novelWords)
+        {
+            if(!dictionaryWords.contains(word));
+            System.out.println(word);
+        }
+        System.out.println("There are "+novelWords.size()+" unique words in the novel");
+
+        Iterator<String> iterator = novelWords.iterator();
+        while(iterator.hasNext())
+        {
+            if (iterator.next().length()<=2)
+            {
+                iterator.remove();
+            }
+             System.out.println("There are "+novelWords.size()+" unique words with more than 3 letters in the novel");
+        }
     }
 
     /**
@@ -25,6 +45,16 @@ public class WordAnalysis
     public static Set<String> readWords(String filename)
         throws FileNotFoundException
     {
-        return null;
+        //Use a hash set instead of a tree set because order doesn't matter
+        Set<String> words = new HashSet<>();
+        Scanner in = new Scanner(new File(filename),"UTF-8");
+
+        //Use any cahracter thats not a letter as delimiter
+        in.useDelimiter("[^a-zA-Z]+");
+        while(in.hasNext())
+        {
+            words.add(in.next().toLowerCase());
+        }
+        return words;
     }
 }
