@@ -13,7 +13,29 @@ public class Sieve
         int n = in.nextInt();
 
         // Your work goes here
-        . . .
+        boolean[] prime = new boolean[n+1];
+        for(int i=0;i<n;i++)
+        {
+            for(int k=1; k<i;k++)
+            {
+                if(i%k != 0)
+                {
+                    prime[i]=false;
+                }
+                else
+                {
+                    prime[i]=true;
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            if(prime[i]==true)
+            {
+                System.out.println(i);
+            }
+        }
 
 
 
