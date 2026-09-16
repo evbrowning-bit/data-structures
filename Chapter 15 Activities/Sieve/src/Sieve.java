@@ -16,7 +16,7 @@ public class Sieve
         boolean[] prime = new boolean[n+1];
         for(int i=2;i<=n;i++)
         {
-            prime[i]=true
+            prime[i]=true;
         }
         for (int i = 2; i <= n; i++) 
         {
@@ -30,7 +30,7 @@ public class Sieve
             }
         }
 
-        for(int i=2;i<n;i++)
+        for(int i=2;i<=n;i++)
         {
             if(prime[i]==true)
             {
